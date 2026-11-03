@@ -1,0 +1,329 @@
+/* =========================================================
+   CORES E FONTES: para mudar o tema, edite só este bloco
+   ========================================================= */
+:root {
+  --marinho: #10263f;
+  --azul: #1d5fb4;
+  --azul-escuro: #174d94;
+  --fundo-alt: #f4f6f9;
+  --texto: #1c2733;
+  --texto-suave: #5a6775;
+  --borda: #dbe1e8;
+  --fonte-titulo: Georgia, "Times New Roman", serif;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: var(--fonte-titulo); }
+
+/* O menu fixo não cobre o título ao clicar nos links */
+section[id] { scroll-margin-top: 56px; }
+
+.pular-conteudo {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2000;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: var(--marinho);
+  border-radius: 0.25rem;
+}
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+.secao { padding: 4.5rem 0; }
+.secao-alt { background: var(--fundo-alt); }
+
+@media (max-width: 767.98px) {
+  .secao { padding: 3rem 0; }
+}
+
+.cabecalho-secao {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.cabecalho-secao h2 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* traço fino acima de cada título de seção */
+.cabecalho-secao h2::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-bottom: 1rem;
+  background: var(--azul);
+}
+
+.cabecalho-secao p {
+  margin-bottom: 0;
+  color: var(--texto-suave);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+.btn-primary {
+  --bs-btn-bg: var(--azul);
+  --bs-btn-border-color: var(--azul);
+  --bs-btn-hover-bg: var(--azul-escuro);
+  --bs-btn-hover-border-color: var(--azul-escuro);
+  --bs-btn-active-bg: var(--azul-escuro);
+  --bs-btn-active-border-color: var(--azul-escuro);
+  --bs-btn-focus-shadow-rgb: 29, 95, 180;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--azul);
+  --bs-btn-border-color: var(--azul);
+  --bs-btn-hover-bg: var(--azul);
+  --bs-btn-hover-border-color: var(--azul);
+  --bs-btn-active-bg: var(--azul-escuro);
+  --bs-btn-active-border-color: var(--azul-escuro);
+  --bs-btn-focus-shadow-rgb: 29, 95, 180;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.navbar-tema {
+  --bs-navbar-color: #c5d1e0;
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-active-color: #fff;
+  background: var(--marinho);
+}
+
+.navbar-tema .navbar-brand {
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.navbar-tema .nav-link { padding: 0.75rem 0.9rem; }
+
+/* seção atual sublinhada (o Bootstrap aplica .active sozinho ao rolar) */
+.navbar-tema .nav-link.active {
+  box-shadow: inset 0 -2px 0 #fff;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  padding: 5rem 0;
+  background: var(--marinho);
+  color: #fff;
+}
+
+.hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hero .lead {
+  max-width: 38rem;
+  color: #c5d1e0;
+}
+
+.hero-fatos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-fatos li {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-fatos strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+}
+
+.hero-fatos span { color: #c5d1e0; }
+
+/* =========================================================
+   CARROSSEL
+   ========================================================= */
+.carrossel-tema {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.carrossel-tema .carousel-item img {
+  height: 440px;
+  object-fit: cover;
+}
+
+.carrossel-tema .carousel-caption {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem 1.5rem 3rem;
+  text-align: left;
+  background: rgba(16, 38, 63, 0.82);
+}
+
+.carrossel-tema .carousel-caption h3 { font-size: 1.25rem; }
+
+@media (max-width: 767.98px) {
+  .carrossel-tema .carousel-item img { height: 260px; }
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.card-roteiro {
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.card-roteiro:hover { border-color: var(--azul); }
+
+.card-roteiro .card-body { padding: 1.5rem; }
+
+.card-meta {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.card-roteiro .card-title { font-weight: 700; }
+
+.detalhes {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+}
+
+.detalhes li {
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--borda);
+}
+
+.card-roteiro .card-footer {
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border-top: 1px solid var(--borda);
+}
+
+.preco { font-weight: 700; }
+.preco small { font-weight: 400; color: var(--texto-suave); }
+
+/* =========================================================
+   CARTÃO GENÉRICO (tabela e formulário)
+   ========================================================= */
+.cartao {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+}
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+.tabela-saidas {
+  --bs-table-striped-bg: var(--fundo-alt);
+  --bs-table-hover-bg: #eaf0f8;
+  margin-bottom: 0;
+}
+
+.tabela-saidas .table-dark {
+  --bs-table-bg: var(--marinho);
+  --bs-table-border-color: var(--marinho);
+}
+
+.tabela-saidas thead th {
+  padding: 0.9rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tabela-saidas td,
+.tabela-saidas tbody th {
+  padding: 0.9rem 1rem;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   CONTATO
+   ========================================================= */
+.contato-lista dt {
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.contato-lista dd { margin: 0.15rem 0 0; }
+
+.form-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.form-control,
+.form-select { border-color: #c5ced9; }
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--azul);
+  box-shadow: 0 0 0 0.2rem rgba(29, 95, 180, 0.2);
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+.modal-content {
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+.rodape {
+  padding: 1.5rem 0;
+  background: var(--marinho);
+  color: #c5d1e0;
+  font-size: 0.92rem;
+}
+
+.rodape strong {
+  font-family: var(--fonte-titulo);
+  color: #fff;
+}
+
+/* =========================================================
+   MENOS ANIMAÇÃO PARA QUEM PREFERE
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card-roteiro { transition: none; }
+}

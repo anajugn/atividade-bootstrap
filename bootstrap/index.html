@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Atividade Bootstrap</title>
+  <title>Trilhas &amp; Rumos | Caminhadas guiadas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
-<body>
+
+<!-- scrollspy: o Bootstrap marca no menu a seção que está na tela -->
+<body data-bs-spy="scroll" data-bs-target="#navPrincipal" data-bs-root-margin="-70px 0px -40%" tabindex="0">
+
+  <a class="pular-conteudo visually-hidden-focusable" href="#conteudo">Ir para o conteúdo</a>
 
   <header>
     <!-- 1. NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Menu principal">
+    <nav id="navPrincipal" class="navbar navbar-expand-lg navbar-dark navbar-tema sticky-top" aria-label="Menu principal">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#">MeuSite</a>
+        <a class="navbar-brand" href="#inicio">Trilhas &amp; Rumos</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
                 aria-expanded="false" aria-label="Alternar navegação">
@@ -20,9 +25,10 @@
         </button>
         <div class="collapse navbar-collapse" id="menuPrincipal">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#destaques">Destaques</a></li>
-            <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-            <li class="nav-item"><a class="nav-link" href="#tabela">Dados</a></li>
+            <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+            <li class="nav-item"><a class="nav-link" href="#roteiros">Roteiros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#saidas">Próximas saídas</a></li>
             <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
           </ul>
         </div>
@@ -30,172 +36,277 @@
     </nav>
   </header>
 
-  <main>
+  <main id="conteudo" tabindex="-1">
+
+    <!-- APRESENTAÇÃO -->
+    <section id="inicio" class="hero" aria-labelledby="titulo-hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <h1 id="titulo-hero" class="display-5 mb-3">Caminhadas guiadas em áreas de natureza preservada</h1>
+            <p class="lead mb-4">
+              Organizamos roteiros de dois a sete dias para quem quer conhecer vales, montanhas e
+              cachoeiras com segurança, em grupos pequenos e acompanhado de guias locais.
+            </p>
+            <a href="#roteiros" class="btn btn-light btn-lg me-2 mb-2">Ver roteiros</a>
+            <a href="#contato" class="btn btn-outline-light btn-lg mb-2">Pedir orçamento</a>
+          </div>
+          <div class="col-lg-5">
+            <ul class="hero-fatos">
+              <li><strong>Grupos reduzidos</strong><span>No máximo 12 pessoas por saída.</span></li>
+              <li><strong>Guias credenciados</strong><span>Profissionais com curso de primeiros socorros.</span></li>
+              <li><strong>Seguro incluso</strong><span>Cobertura em todos os roteiros.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- 2. CARROSSEL -->
-    <section id="destaques" class="container my-4" aria-label="Destaques">
-      <div id="carrossel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carrossel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carrossel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carrossel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <section id="galeria" class="secao" aria-labelledby="titulo-galeria">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <h2 id="titulo-galeria">Galeria</h2>
+          <p>Paisagens dos lugares por onde passam os nossos roteiros.</p>
         </div>
-        <div class="carousel-inner rounded">
-          <div class="carousel-item active">
-            <img src="https://picsum.photos/id/1015/1200/500" class="d-block w-100" alt="Paisagem com rio e montanhas">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Primeiro destaque</h5><p>Lorem ipsum dolor sit amet.</p>
+
+        <div id="carrossel" class="carousel slide carrossel-tema" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carrossel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carrossel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carrossel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://picsum.photos/id/1015/1200/500" class="d-block w-100" alt="Vale com um rio entre montanhas">
+              <div class="carousel-caption">
+                <h3>Vales e rios</h3>
+                <p class="mb-0">Trilhas que acompanham o curso da água.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/id/1018/1200/500" class="d-block w-100" alt="Montanhas verdes cobertas por neblina">
+              <div class="carousel-caption">
+                <h3>Montanhas</h3>
+                <p class="mb-0">Travessias com vista aberta e clima de altitude.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/id/1039/1200/500" class="d-block w-100" alt="Cachoeira em meio à floresta">
+              <div class="carousel-caption">
+                <h3>Cachoeiras</h3>
+                <p class="mb-0">Paradas para banho nos trechos mais leves.</p>
+              </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/1018/1200/500" class="d-block w-100" alt="Montanhas ao amanhecer">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Segundo destaque</h5><p>Consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://picsum.photos/id/1039/1200/500" class="d-block w-100" alt="Cachoeira na floresta">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Terceiro destaque</h5><p>Sed do eiusmod tempor.</p>
-            </div>
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carrossel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carrossel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carrossel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carrossel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Próximo</span>
-        </button>
       </div>
     </section>
 
     <!-- 3. CARDS -->
-    <section id="servicos" class="container my-5" aria-labelledby="titulo-servicos">
-      <h2 id="titulo-servicos" class="mb-4">Nossos Serviços</h2>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div class="col">
-          <article class="card h-100 shadow-sm">
-            <img src="https://picsum.photos/id/180/400/250" class="card-img-top" alt="Notebook em uma mesa">
-            <div class="card-body">
-              <h3 class="card-title h5">Desenvolvimento Web</h3>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="card-footer bg-transparent border-0">
-              <a href="#" class="btn btn-primary">Saiba mais</a>
-            </div>
-          </article>
+    <section id="roteiros" class="secao secao-alt" aria-labelledby="titulo-roteiros">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <h2 id="titulo-roteiros">Roteiros</h2>
+          <p>Três opções, da caminhada de fim de semana à expedição de montanha.</p>
         </div>
-        <div class="col">
-          <article class="card h-100 shadow-sm">
-            <img src="https://picsum.photos/id/119/400/250" class="card-img-top" alt="Smartphone sobre uma mesa">
-            <div class="card-body">
-              <h3 class="card-title h5">Aplicativos Mobile</h3>
-              <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
-            <div class="card-footer bg-transparent border-0">
-              <a href="#" class="btn btn-primary">Saiba mais</a>
-            </div>
-          </article>
-        </div>
-        <div class="col">
-          <article class="card h-100 shadow-sm">
-            <img src="https://picsum.photos/id/160/400/250" class="card-img-top" alt="Equipe em reunião">
-            <div class="card-body">
-              <h3 class="card-title h5">Consultoria</h3>
-              <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit.</p>
-            </div>
-            <div class="card-footer bg-transparent border-0">
-              <a href="#" class="btn btn-primary">Saiba mais</a>
-            </div>
-          </article>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col">
+            <article class="card card-roteiro h-100">
+              <div class="card-body">
+                <p class="card-meta">2 dias · Leve</p>
+                <h3 class="card-title h4">Cachoeiras e Mirantes</h3>
+                <p class="card-text">Roteiro de fim de semana com banhos de cachoeira e subida a um mirante para ver o nascer do sol.</p>
+                <ul class="detalhes">
+                  <li>Pernoite em pousada</li>
+                  <li>Lanche de trilha incluso</li>
+                  <li>Indicado para iniciantes</li>
+                </ul>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between">
+                <span class="preco"><small>a partir de</small><br>R$ 790</span>
+                <a href="#saidas" class="btn btn-outline-primary btn-sm">Ver saídas</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card card-roteiro h-100">
+              <div class="card-body">
+                <p class="card-meta">5 dias · Moderada</p>
+                <h3 class="card-title h4">Travessia do Vale</h3>
+                <p class="card-text">Cinco dias de caminhada entre vilarejos, com pernoite em pousadas locais e bagagem levada pelo carro de apoio.</p>
+                <ul class="detalhes">
+                  <li>Hospedagem e café da manhã</li>
+                  <li>Transporte da bagagem</li>
+                  <li>Guia durante todo o percurso</li>
+                </ul>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between">
+                <span class="preco"><small>a partir de</small><br>R$ 2.480</span>
+                <a href="#saidas" class="btn btn-outline-primary btn-sm">Ver saídas</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card card-roteiro h-100">
+              <div class="card-body">
+                <p class="card-meta">7 dias · Exigente</p>
+                <h3 class="card-title h4">Expedição de Montanha</h3>
+                <p class="card-text">Para quem já tem experiência: altitude, trechos técnicos e acampamento em locais isolados.</p>
+                <ul class="detalhes">
+                  <li>Equipamento de camping incluso</li>
+                  <li>Guia e assistente</li>
+                  <li>Exige preparo físico prévio</li>
+                </ul>
+              </div>
+              <div class="card-footer d-flex align-items-center justify-content-between">
+                <span class="preco"><small>a partir de</small><br>R$ 3.950</span>
+                <a href="#saidas" class="btn btn-outline-primary btn-sm">Ver saídas</a>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. TABELA -->
-    <section id="tabela" class="container my-5" aria-labelledby="titulo-tabela">
-      <h2 id="titulo-tabela" class="mb-4">Lista de Produtos</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover align-middle">
-          <caption>Produtos cadastrados</caption>
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Produto</th>
-              <th scope="col">Categoria</th>
-              <th scope="col">Preço</th>
-              <th scope="col">Estoque</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">1</th><td>Teclado</td><td>Periféricos</td><td>R$ 120,00</td><td>35</td></tr>
-            <tr><th scope="row">2</th><td>Mouse</td><td>Periféricos</td><td>R$ 80,00</td><td>50</td></tr>
-            <tr><th scope="row">3</th><td>Monitor</td><td>Telas</td><td>R$ 900,00</td><td>12</td></tr>
-            <tr><th scope="row">4</th><td>Webcam</td><td>Vídeo</td><td>R$ 250,00</td><td>20</td></tr>
-            <tr><th scope="row">5</th><td>Headset</td><td>Áudio</td><td>R$ 300,00</td><td>18</td></tr>
-          </tbody>
-        </table>
+    <!-- 4. TABELA (com botões que abrem o modal) -->
+    <section id="saidas" class="secao" aria-labelledby="titulo-saidas">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <h2 id="titulo-saidas">Próximas saídas</h2>
+          <p>Confira as datas e as vagas disponíveis e faça a sua pré-reserva.</p>
+        </div>
+
+        <div class="cartao overflow-hidden">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle tabela-saidas">
+              <caption class="visually-hidden">Próximas saídas com roteiro, data, duração, vagas e valor</caption>
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Roteiro</th>
+                  <th scope="col">Saída</th>
+                  <th scope="col">Duração</th>
+                  <th scope="col">Vagas</th>
+                  <th scope="col" class="text-end">Valor</th>
+                  <th scope="col"><span class="visually-hidden">Ação</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Cachoeiras e Mirantes</th>
+                  <td>05/12/2026</td>
+                  <td>2 dias</td>
+                  <td>6</td>
+                  <td class="text-end">R$ 790,00</td>
+                  <td class="text-end"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalReserva" data-roteiro="Cachoeiras e Mirantes" data-saida="05/12/2026">Reservar</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">Travessia do Vale</th>
+                  <td>12/12/2026</td>
+                  <td>5 dias</td>
+                  <td>4 <span class="text-danger small">últimas vagas</span></td>
+                  <td class="text-end">R$ 2.480,00</td>
+                  <td class="text-end"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalReserva" data-roteiro="Travessia do Vale" data-saida="12/12/2026">Reservar</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">Cachoeiras e Mirantes</th>
+                  <td>09/01/2027</td>
+                  <td>2 dias</td>
+                  <td>10</td>
+                  <td class="text-end">R$ 790,00</td>
+                  <td class="text-end"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalReserva" data-roteiro="Cachoeiras e Mirantes" data-saida="09/01/2027">Reservar</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">Expedição de Montanha</th>
+                  <td>23/01/2027</td>
+                  <td>7 dias</td>
+                  <td>3 <span class="text-danger small">últimas vagas</span></td>
+                  <td class="text-end">R$ 3.950,00</td>
+                  <td class="text-end"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalReserva" data-roteiro="Expedição de Montanha" data-saida="23/01/2027">Reservar</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">Travessia do Vale</th>
+                  <td>06/02/2027</td>
+                  <td>5 dias</td>
+                  <td>8</td>
+                  <td class="text-end">R$ 2.480,00</td>
+                  <td class="text-end"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalReserva" data-roteiro="Travessia do Vale" data-saida="06/02/2027">Reservar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- 5. FORMULÁRIO -->
-    <section id="contato" class="container my-5" aria-labelledby="titulo-contato">
-      <h2 id="titulo-contato" class="mb-4">Fale Conosco</h2>
-      <form class="row g-3" action="#" method="post">
-        <div class="col-md-6">
-          <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" name="nome" required minlength="3">
+    <section id="contato" class="secao secao-alt" aria-labelledby="titulo-contato">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <h2 id="titulo-contato">Solicite um orçamento</h2>
+          <p>Conte o que você procura e respondemos em até um dia útil.</p>
         </div>
-        <div class="col-md-6">
-          <label for="email" class="form-label">E-mail</label>
-          <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="col-md-6">
-          <label for="telefone" class="form-label">Telefone</label>
-          <input type="tel" class="form-control" id="telefone" name="telefone">
-        </div>
-        <div class="col-md-6">
-          <label for="assunto" class="form-label">Assunto</label>
-          <select class="form-select" id="assunto" name="assunto" required>
-            <option value="" selected disabled>Selecione...</option>
-            <option>Dúvida</option>
-            <option>Orçamento</option>
-            <option>Suporte</option>
-          </select>
-        </div>
-        <div class="col-12">
-          <label for="mensagem" class="form-label">Mensagem</label>
-          <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-success">Enviar</button>
-        </div>
-      </form>
-    </section>
 
-    <!-- 6. MODAL -->
-    <section class="container my-5 text-center" aria-labelledby="titulo-modal">
-      <h2 id="titulo-modal" class="mb-3">Confirmação</h2>
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConfirmacao">
-        Excluir cadastro
-      </button>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h3 class="h5 fw-bold">Atendimento</h3>
+            <dl class="contato-lista mb-0">
+              <dt>E-mail</dt>
+              <dd>contato@trilhaserumos.com.br</dd>
+              <dt>Telefone</dt>
+              <dd>(71) 3000-0000</dd>
+              <dt>Horário</dt>
+              <dd>Segunda a sexta, das 8h às 18h</dd>
+            </dl>
+          </div>
 
-      <div class="modal fade" id="modalConfirmacao" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title fs-5" id="modalTitulo">Confirmar exclusão</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-              <p>Tem certeza de que deseja excluir este cadastro? Esta ação não pode ser desfeita.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirmar</button>
-            </div>
+          <div class="col-lg-8">
+            <form class="cartao row g-3 p-4 m-0" action="#" method="post">
+              <div class="col-md-6">
+                <label for="nome" class="form-label">Nome completo</label>
+                <input type="text" class="form-control" id="nome" name="nome" autocomplete="name" required minlength="3">
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+              </div>
+              <div class="col-md-4">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="tel" class="form-control" id="telefone" name="telefone" autocomplete="tel">
+              </div>
+              <div class="col-md-5">
+                <label for="roteiro" class="form-label">Roteiro de interesse</label>
+                <select class="form-select" id="roteiro" name="roteiro" required>
+                  <option value="" selected disabled>Selecione...</option>
+                  <option>Cachoeiras e Mirantes</option>
+                  <option>Travessia do Vale</option>
+                  <option>Expedição de Montanha</option>
+                  <option>Ainda não sei</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="pessoas" class="form-label">Pessoas</label>
+                <input type="number" class="form-control" id="pessoas" name="pessoas" min="1" max="12" value="2" required>
+              </div>
+              <div class="col-12">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary px-4">Enviar pedido</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -203,10 +314,50 @@
 
   </main>
 
-  <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p class="mb-0">&copy; 2026 - Seu Nome | Engenharia de Software - UCSal</p>
+  <!-- 6. MODAL (aberto pelos botões "Reservar" da tabela) -->
+  <div class="modal fade" id="modalReserva" tabindex="-1" aria-labelledby="modalReservaTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow">
+        <div class="modal-header">
+          <h2 class="modal-title h4 fw-bold" id="modalReservaTitulo">Confirmar pré-reserva</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Você está reservando uma vaga em <strong id="reserva-roteiro">-</strong>,
+            com saída em <strong id="reserva-saida">-</strong>.
+          </p>
+          <p class="text-secondary mb-0">
+            A vaga fica garantida por 48 horas. Nesse prazo, nossa equipe entra em contato
+            para combinar o pagamento.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirmar pré-reserva</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="rodape">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-1">
+      <span><strong>Trilhas &amp; Rumos</strong> · Caminhadas guiadas</span>
+      <span>&copy; 2026 - Seu Nome | Engenharia de Software - UCSal</span>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Preenche o modal com o roteiro e a data da linha da tabela que foi clicada
+    const modalReserva = document.getElementById('modalReserva');
+
+    modalReserva.addEventListener('show.bs.modal', (evento) => {
+      const botao = evento.relatedTarget; // botão "Reservar" que abriu o modal
+      if (!botao) return;
+      document.getElementById('reserva-roteiro').textContent = botao.dataset.roteiro;
+      document.getElementById('reserva-saida').textContent = botao.dataset.saida;
+    });
+  </script>
 </body>
 </html>
