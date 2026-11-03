@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atividade Tailwind</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <header>
+    <!-- 1. NAVBAR -->
+    <nav class="bg-blue-600 text-white" aria-label="Menu principal">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+        <a href="#" class="text-xl font-bold">MeuSite</a>
+
+        <!-- Botão hambúrguer (só aparece no mobile) -->
+        <button id="btn-menu" type="button"
+                class="md:hidden p-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white"
+                aria-controls="menu" aria-expanded="false" aria-label="Alternar navegação">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <ul id="menu" class="hidden w-full pt-4 md:flex md:w-auto md:pt-0 md:gap-6">
+          <li class="py-2 md:py-0"><a class="hover:underline" href="#destaques">Destaques</a></li>
+          <li class="py-2 md:py-0"><a class="hover:underline" href="#servicos">Serviços</a></li>
+          <li class="py-2 md:py-0"><a class="hover:underline" href="#tabela">Dados</a></li>
+          <li class="py-2 md:py-0"><a class="hover:underline" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4">
+
+    <!-- 2. CARROSSEL -->
+    <section id="destaques" class="my-6" aria-label="Destaques">
+      <div class="relative overflow-hidden rounded-lg" role="region" aria-roledescription="carrossel">
+        <div id="slides" class="flex transition-transform duration-500 ease-in-out">
+          <div class="w-full shrink-0 relative">
+            <img src="https://picsum.photos/id/1015/1200/500" alt="Paisagem com rio e montanhas" class="w-full h-56 md:h-96 object-cover">
+            <div class="absolute bottom-0 inset-x-0 bg-black/50 text-white p-4">
+              <h3 class="font-bold">Primeiro destaque</h3><p class="text-sm">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+          <div class="w-full shrink-0 relative">
+            <img src="https://picsum.photos/id/1018/1200/500" alt="Montanhas ao amanhecer" class="w-full h-56 md:h-96 object-cover">
+            <div class="absolute bottom-0 inset-x-0 bg-black/50 text-white p-4">
+              <h3 class="font-bold">Segundo destaque</h3><p class="text-sm">Consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="w-full shrink-0 relative">
+            <img src="https://picsum.photos/id/1039/1200/500" alt="Cachoeira na floresta" class="w-full h-56 md:h-96 object-cover">
+            <div class="absolute bottom-0 inset-x-0 bg-black/50 text-white p-4">
+              <h3 class="font-bold">Terceiro destaque</h3><p class="text-sm">Sed do eiusmod tempor.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botões anterior / próximo -->
+        <button id="prev" type="button" aria-label="Slide anterior"
+                class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-10 h-10 text-xl">&larr;</button>
+        <button id="next" type="button" aria-label="Próximo slide"
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-10 h-10 text-xl">&rarr;</button>
+
+        <!-- Indicadores (dots) -->
+        <div id="dots" class="absolute bottom-16 inset-x-0 flex justify-center gap-2"></div>
+      </div>
+    </section>
+
+    <!-- 3. CARDS -->
+    <section id="servicos" class="my-10" aria-labelledby="titulo-servicos">
+      <h2 id="titulo-servicos" class="text-2xl font-bold mb-4">Nossos Serviços</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="bg-white rounded-lg shadow overflow-hidden flex flex-col">
+          <img src="https://picsum.photos/id/180/400/250" alt="Notebook em uma mesa" class="w-full h-40 object-cover">
+          <div class="p-4 flex-1">
+            <h3 class="text-lg font-semibold mb-2">Desenvolvimento Web</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="p-4 pt-0"><a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Saiba mais</a></div>
+        </article>
+        <article class="bg-white rounded-lg shadow overflow-hidden flex flex-col">
+          <img src="https://picsum.photos/id/119/400/250" alt="Smartphone sobre uma mesa" class="w-full h-40 object-cover">
+          <div class="p-4 flex-1">
+            <h3 class="text-lg font-semibold mb-2">Aplicativos Mobile</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          </div>
+          <div class="p-4 pt-0"><a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Saiba mais</a></div>
+        </article>
+        <article class="bg-white rounded-lg shadow overflow-hidden flex flex-col">
+          <img src="https://picsum.photos/id/160/400/250" alt="Equipe em reunião" class="w-full h-40 object-cover">
+          <div class="p-4 flex-1">
+            <h3 class="text-lg font-semibold mb-2">Consultoria</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+          </div>
+          <div class="p-4 pt-0"><a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Saiba mais</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. TABELA -->
+    <section id="tabela" class="my-10" aria-labelledby="titulo-tabela">
+      <h2 id="titulo-tabela" class="text-2xl font-bold mb-4">Lista de Produtos</h2>
+      <div class="overflow-x-auto rounded-lg shadow">
+        <table class="w-full text-left bg-white">
+          <caption class="sr-only">Produtos cadastrados</caption>
+          <thead class="bg-gray-800 text-white">
+            <tr>
+              <th scope="col" class="px-4 py-3">#</th>
+              <th scope="col" class="px-4 py-3">Produto</th>
+              <th scope="col" class="px-4 py-3">Categoria</th>
+              <th scope="col" class="px-4 py-3">Preço</th>
+              <th scope="col" class="px-4 py-3">Estoque</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd:bg-gray-100 hover:bg-blue-50"><th scope="row" class="px-4 py-3">1</th><td class="px-4 py-3">Teclado</td><td class="px-4 py-3">Periféricos</td><td class="px-4 py-3">R$ 120,00</td><td class="px-4 py-3">35</td></tr>
+            <tr class="odd:bg-gray-100 hover:bg-blue-50"><th scope="row" class="px-4 py-3">2</th><td class="px-4 py-3">Mouse</td><td class="px-4 py-3">Periféricos</td><td class="px-4 py-3">R$ 80,00</td><td class="px-4 py-3">50</td></tr>
+            <tr class="odd:bg-gray-100 hover:bg-blue-50"><th scope="row" class="px-4 py-3">3</th><td class="px-4 py-3">Monitor</td><td class="px-4 py-3">Telas</td><td class="px-4 py-3">R$ 900,00</td><td class="px-4 py-3">12</td></tr>
+            <tr class="odd:bg-gray-100 hover:bg-blue-50"><th scope="row" class="px-4 py-3">4</th><td class="px-4 py-3">Webcam</td><td class="px-4 py-3">Vídeo</td><td class="px-4 py-3">R$ 250,00</td><td class="px-4 py-3">20</td></tr>
+            <tr class="odd:bg-gray-100 hover:bg-blue-50"><th scope="row" class="px-4 py-3">5</th><td class="px-4 py-3">Headset</td><td class="px-4 py-3">Áudio</td><td class="px-4 py-3">R$ 300,00</td><td class="px-4 py-3">18</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. FORMULÁRIO -->
+    <section id="contato" class="my-10" aria-labelledby="titulo-contato">
+      <h2 id="titulo-contato" class="text-2xl font-bold mb-4">Fale Conosco</h2>
+      <form action="#" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="nome" class="block mb-1 font-medium">Nome</label>
+          <input type="text" id="nome" name="nome" required minlength="3"
+                 class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label for="email" class="block mb-1 font-medium">E-mail</label>
+          <input type="email" id="email" name="email" required
+                 class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label for="telefone" class="block mb-1 font-medium">Telefone</label>
+          <input type="tel" id="telefone" name="telefone"
+                 class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label for="assunto" class="block mb-1 font-medium">Assunto</label>
+          <select id="assunto" name="assunto" required
+                  class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="" selected disabled>Selecione...</option>
+            <option>Dúvida</option>
+            <option>Orçamento</option>
+            <option>Suporte</option>
+          </select>
+        </div>
+        <div class="md:col-span-2">
+          <label for="mensagem" class="block mb-1 font-medium">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="4" required
+                    class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded">Enviar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 6. MODAL (tag <dialog> nativa) -->
+    <section class="my-10 text-center" aria-labelledby="titulo-modal">
+      <h2 id="titulo-modal" class="text-2xl font-bold mb-3">Confirmação</h2>
+      <button id="abrir-modal" type="button" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded">
+        Excluir cadastro
+      </button>
+
+      <dialog id="modal" aria-labelledby="modal-titulo"
+              class="m-auto w-11/12 max-w-md rounded-lg p-6 text-left shadow-xl backdrop:bg-black/50">
+        <h3 id="modal-titulo" class="text-lg font-bold mb-2">Confirmar exclusão</h3>
+        <p class="mb-6">Tem certeza de que deseja excluir este cadastro? Esta ação não pode ser desfeita.</p>
+        <div class="flex justify-end gap-2">
+          <button
